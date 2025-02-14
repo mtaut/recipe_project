@@ -1,0 +1,98 @@
+{% load static %}
+<!-- to load static files-images and CSS -->
+
+<!-- ***** THIS IS THE MAIN PAGE THAT USER ARRIVES TO AFTER LOGIN - IS A PROTECTED VIEW - (127.0.0.1:8000/list/) ***** -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes! List</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/style.css' %}" />
+    <script src="{% static 'recipes/js/main.js' %}"></script>
+  </head>
+  <body>
+    <br />
+    <h1 class="header-title">Recipes!</h1>
+
+    <!------- UPPER LEFT MENU BUTTON AND OPTIONS------->
+    <div class="recipe-body">
+      <div class="logout-container">
+        <button onclick="showMenu()" class="button">Menu</button>
+        <div id="nav" class="hide">
+          <ul>
+            <li>
+              <a href="{% url 'recipes:create_recipe' %}" class="button"
+                >Create a Recipe</a
+              >
+            </li>
+            <br />
+            <li>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="button">Logout</button>
+              </form>
+            </li>
+            <br />
+            <li>
+              <a href="{% url 'recipes:about' %}" class="button">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!------- USER FEEDBACK MESSAGE FOR CREATING A RECIPE ------->
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <!------- RECIPE SEARCH AND CHART OPTION FIELDS ------->
+      <div class="search-container">
+        <p>Search for an ingredient or display recipe data in a chart:</p>
+        <form action="{% url 'recipes:recipes_list' %}" method="GET">
+          {{ form }}
+          <br />
+          <button type="submit" class="button2">Search</button>
+        </form>
+        {% if search_results %}
+        <h3>Search Results:</h3>
+        <div class="search-results">
+          {% for recipe in search_results %}
+          <p>
+            <a href="{% url 'recipes:detail' recipe.id %}" class="button2"
+              >{{ recipe.name }}</a
+            >
+          </p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <!------- CHART DISPLAY ------->
+      {% if chart %}
+      <div>
+        <h2 class="header-title">Chart:</h2>
+        <img src="data:image/png;base64,{{ chart }}" />
+      </div>
+      {% endif %}
+
+      <!------- LIST OF SAVED RECIPES ------->
+      <div class="recipe-container">
+        <h1 class="recipe-title">Recipe List</h1>
+        {% for object in object_list %}
+        <div class="recipe-item">
+          <a href="{{object.get_absolute_url}}">
+            <h2 class="button2">{{ object.name }}</h2></a
+          >
+          <img src="{{object.pic.url}}" alt="{{ object.name }}" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

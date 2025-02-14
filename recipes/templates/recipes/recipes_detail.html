@@ -1,0 +1,68 @@
+{% load static %}
+
+<!-- ***** THIS IS THE RECIPE DETAIL PAGE - IS A PROTECTED VIEW - (URL/list/<pk>) ***** -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes! Details</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/style.css' %}" />
+    <script src="{% static 'recipes/js/main.js' %}"></script>
+  </head>
+
+  <!------- MENU AND OPTIONS IN UPPER-LEFT OF SCREEN ------->
+  <body>
+    <div class="recipe-body">
+      <div class="logout-container">
+        <button onclick="showMenu()" class="button">Menu</button>
+        <div id="nav" class="hide">
+          <ul>
+            <li>
+              <a href="{% url 'recipes:recipes_list' %}" class="button"
+                >Back to List</a
+              >
+            </li>
+            <br />
+            <li>
+              <a href="{% url 'recipes:create_recipe' %}" class="button"
+                >Create a Recipe</a
+              >
+            </li>
+            <br />
+            <li>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="button">Logout</button>
+              </form>
+            </li>
+            <br />
+            <li>
+              <a href="{% url 'recipes:about' %}" class="button">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!------- RECIPE DETAILS ------->
+      <div class="recipe-container">
+        <h2 class="recipe-title">Recipe Details: {{object.name}}</h2>
+
+        <div class="recipe-info">
+          <p><b>Name:</b> {{ object.name }}</p>
+          <p><b>Ingredients:</b> {{ object.ingredients }}</p>
+          <p><b>Cooking Time:</b> {{ object.cooking_time }}</p>
+          <p><b>Difficulty:</b> {{ object.calculate_difficulty }}</p>
+          <p><b>Description:</b> {{ object.description }}</p>
+        </div>
+
+        <img
+          src="{{object.pic.url}}"
+          class="recipe-img"
+          alt="{{ object.name }}"
+        />
+      </div>
+    </div>
+  </body>
+</html>

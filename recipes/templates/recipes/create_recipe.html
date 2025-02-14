@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Recipe</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/style.css' %}" />
+  </head>
+
+  <!------- USER FORM TO CREATE A RECIPE - NOT USING MENU HERE, BUT 'BACK' BUTTON NEXT TO CREATE BUTTON ------->
+  <body>
+    <div class="user-recipe-container">
+      <h2 class="recipe-title">Create a Recipe:</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="button2">Create</button>
+        <a href="{% url 'recipes:recipes_list' %}" class="button2"
+          >Back to List</a
+        >
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/style.css' %}" />
+    <script src="{% static 'recipes/js/main.js' %}"></script>
+  </head>
+
+  <!------- NAVIGATION MENU HERE. OMITTED 'CREATE RECIPE' OPTION FOR THIS PAGE ------->
+  <body>
+    <div class="logout-container">
+      <button onclick="showMenu()" class="button">Menu</button>
+      <div id="nav" class="hide">
+        <ul>
+          <li>
+            <a href="{% url 'recipes:recipes_list' %}" class="button"
+              >Back to List</a
+            >
+          </li>
+          <br />
+          <li>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="button">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!------- DEV INFO SECTION ------->
+    <div class="about-container">
+      <div>
+        <h2>About Me</h2>
+        <hr class="hrzn-rule" />
+        <p>
+          Hello! My name is John Butts and I'm an aspiring web developer. If
+          you're curious to check out my other work or would like to get in
+          touch, see the links below.
+        </p>
+        <a
+          href="https://mtaut.github.io/portfolio-website/"
+          target="_blank"
+          class="button2"
+          >Portfolio</a
+        >
+        <a
+          href="https://www.linkedin.com/in/johnbutts17/"
+          target="_blank"
+          class="button2"
+          >LinkedIn</a
+        >
+      </div>
+
+      <!------- CREDITS FOR IMAGE USE IN PROJECT DEVELOPMENT ------->
+      <hr class="hrzn-rule" />
+      <h3>Credits</h3>
+      <p>Images used in this project were downloaded from unsplash.com</p>
+      <div class="credit-container">
+        <ul class="credits-list">
+          <li>Background: Sergey Kotenev</li>
+          <li>Tea: Manki Kim</li>
+          <li>Tacos: Quin Engle</li>
+          <li>Oatmeal: Susan Wilkinson</li>
+          <li>Lentils: Artur Kornakov</li>
+          <li>Eggs: Amirali Mirhashemian</li>
+          <li>Cookies: Lisa Hanly</li>
+          <li>Bowls: Ion Fet</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

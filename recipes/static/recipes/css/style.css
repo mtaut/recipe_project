@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Khula&family=Lato:wght@700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+</style>)
+
+.josefin-sans-home_text_font {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-image: url(../images/main_background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000;
+  flex-direction: column;
+}
+
+.welcome-body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-container {
+  position: relative;
+  top: -50px; /* will adjust welcome text box y axis */
+  width: 100%;
+  max-width: 375px; /* will adjust welcome text box width */
+  text-align: center;
+  border: 2px solid #000;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #7b8d6a; /* sage green box background */
+}
+
+.recipe-body {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 700px; /* adjust as needed...*/
+  width: 90%;
+  min-height: 50vh;
+  margin: 10px 20px;
+  padding: 20px;
+  overflow-y: auto; /* adjust if necessary... */
+}
+
+.recipe-container {
+  align-items: center;
+  text-align: center;
+  background: #7b8d6a;
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+  height: auto; /* will adjust height of recipe box, might make smaller in future... */
+  min-height: 150px; /* may need to adjust this */
+  overflow-y: auto; /* this will allow for scrolling */
+  margin: 10px 20px;
+}
+
+.recipe-item {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  margin: 10px 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.recipe-item:last-child {
+  border-bottom: none;
+}
+
+.recipe-item h2 {
+  margin-bottom: 10px;
+  margin-top: 5px; /* this centered the recipe-item in the container */
+  font-size: 1.5rem;
+}
+
+.recipe-item img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+}
+
+.recipe-img {
+  display: block;
+  margin: 20px auto 0;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.logout-container {
+  align-self: flex-end;
+  position: absolute;
+  top: 30px;
+  left: 150px;
+  z-index: 10;
+}
+
+.button {
+  background-color: #7b8d6a;
+  color: #000;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.button2 {
+  background-color: #000;
+  color: #ddd;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  box-shadow: 0px 4px 6px rgba(0, 0.4, 0, 0.4);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.recipe-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.recipe-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.search-container {
+  text-align: center;
+  align-items: center;
+  background: #7b8d6a;
+  padding: 15px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  margin-bottom: 20px;
+  margin-top: 20px; /* adjust this as needed.... */
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header-title {
+  background: #7b8d6a;
+  border: 2px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.hide {
+  display: none;
+}
+
+.nav-show {
+  display: block;
+  position: absolute;
+  padding: 10px;
+  list-style: none;
+}
+
+#nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.user-recipe-container {
+  text-align: left;
+  align-items: left;
+  background: #7b8d6a;
+  padding: 15px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+  height: auto;
+  min-height: 150px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.about-container {
+  text-align: center;
+  align-items: center;
+  background: #7b8d6a;
+  border: 2px solid #000;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  margin: 10px 20px;
+  padding: 15px;
+}
+
+.hrzn-rule {
+  border: none;
+  height: 2px;
+  background-color: #000;
+  margin: 10px;
+}
+
+.credits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.credits-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.credits-list li {
+  margin-bottom: 3px;
+}
+
+.messages {
+  list-style: none;
+}
+
+.message.success {
+  color: aliceblue;
+}
+
+.message.error {
+  color: fuchsia;
+}
