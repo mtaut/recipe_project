@@ -15,5 +15,3 @@ __pycache__/
 # database
 *.sqlite3
 
-# project settings
-recipe_project/settings.py
